@@ -1,6 +1,8 @@
 # Sistema Operativo 2024-2
 <hr>
+
 ### 03 de octubre del 2024:
+
     Este día empezaré a reportar el proceso que conlleva crear el sistema operativo para la materia de sistemas operativos, bajo la dirección del docente Héctor Alonso Rivera Alvarez.
     
     Decidí que por fines de aprendizaje, usare el lenguaje C para crear la estructura grafica del sistema, además de usar su paradigma de programacion estructurado que nos facilita el manejo del flujo del programa.
