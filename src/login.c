@@ -1,8 +1,18 @@
 #include <gtk/gtk.h>
+#include "../include/desktop.h"  // Incluir el archivo de encabezado para acceder a open_desktop_window()
 
 // Función callback para manejar el botón de login
 static void on_login_button_clicked(GtkWidget *widget, gpointer data) {
-    g_print("Login button clicked!\n");
+    GtkWindow *login_window = GTK_WINDOW(data);
+
+
+    if (login_window == NULL) {
+        g_print("La referencia a la ventana de login es NULL");
+    } else {
+        g_print("La referencia a la ventana de login es valida");
+        open_desktop_window();  // Llamar a la función que abre la ventana de escritorio
+        gtk_window_close(login_window);  // Cerrar la ventana de login
+    }
 }
 
 // Función principal
@@ -36,7 +46,7 @@ int main(int argc, char *argv[]) {
 
     // Botón de login
     login_button = gtk_button_new_with_label("Login");
-    g_signal_connect(login_button, "clicked", G_CALLBACK(on_login_button_clicked), NULL);
+    g_signal_connect(login_button, "clicked", G_CALLBACK(on_login_button_clicked), window);
 
     // Añadir widgets al grid
     gtk_grid_attach(GTK_GRID(grid), username_label, 0, 0, 1, 1);

@@ -30,17 +30,82 @@
 
     ``` Bash
     cd /c/visualStudioCode/GUI
-    #Ejecutamos de esta manera el codigo
-    gcc `pkg-config --cflags gtk+-3.0` -o nombre_archivo nombre_archivo.c `pkg-config --libs gtk+-3.0`
-
     ```
 
     Cuando tengamos todo instalado, continuaremos con la interfaz grafica, usaremos la biblioteca
     GTK la cual es bastante popular y tiene bastante documentacion, la descargaremos de esta manera:
 
+    Ingreamos desde nuestro navegador a este [enlace](https://www.gtk.org/docs/installations/windows) 
+    y desde ahí seguiremos el paso a paso para descargar el GTK3.
 
-    y volveremos a ejecutar 
+    Y a partir de este momento empezaremos a compilar el archivo de C de esta manera desde el compilador 
+    MSYS2 MGWIN64:
+    
+    ``` Bash 
+    gcc `pkg-config --cflags gtk+-3.0` -o nombre_archivo nombre_archivo.c `pkg-config --libs gtk+-3.0` 
+    ```
 
+    Continuaremos el proyecto creando las clases **desktop.c** y **login.c**.
+    Crearemos el codigo correspondiente para crear el escritorio y la pagina de bloqueo de nuestro OS
+    compilaremos las dos clases de la manera en que hemos aprendido:
+
+    ``` Bash
+    #Nos ubicamos dentro de nuestro proyecto desde la terminal del compilador MSYS2 MGWIN64
+    cd /c/visualStudioCode/GUI
+
+    #Compilamos una clase a la vez, primero desktop
+    gcc `pkg-config --cflags gtk+-3.0` -o desktop desktop.c `pkg-config --libs gtk+-3.0` 
+
+    #luego continuamos con login
+    gcc `pkg-config --cflags gtk+-3.0` -o login login.c `pkg-config --libs gtk+-3.0`  
+    ```
+    Para ejecutar el codigo iremos al terminal del visual studio code y ejecutaremos el archivo .exe
+    de esta manera:
+
+    ``` Powershell
+    ./login.exe
+    ./desktop.exe
+    ```
+
+    Y de esta manera tenemos la primera parte de nuestro codigo.
+
+### 07 de octubre del 2024
+    Continuamos con la creacion del SO por donde lo dejamos, ahora
+    el objetivo será que a partir del login podamos abrir el escritorio
+    objetivo que ya logramos gracias al uso de los header file, en estos
+    archivos almacenaremos las declaraciones de funciones que pueden
+    ser compartidos entre varios archivos de codigo.
+
+    Además se definio la arquitectura de archivos que se usara siento esta:
+
+    ```scss
+    /my_operating_system_project
+     /src
+        - login.c
+        - desktop.c  // Punto de entrada del sistema operativo
+    /include
+        - login.h  // Archivos de encabezado con definiciones de funciones
+        - desktop.h
+    /build
+        - (archivos compilados) //Archivos con extension .exe
+    ```
+    Y continuando con el objetivo de hoy, hicimos ciertas modificaciones en 
+    el proyecto, debo mencionar que me percate que cada vez que hagamos un cambio 
+    dentro de algun archivo, debemos compilar nuevamente todo el codigo para generar 
+    el archivo .exe y volver a ejecutar. Despues de hacer los cambios, usamos este
+    comando en el MSYS MGWIN64 para compilar un .exe que nos permita abrir el 
+    login y despues de ingresar generar el desktop.
+
+    ``` Bash
+    gcc login.c desktop.c -o my_program `pkg-config --cflags --libs gtk+-3.0`
+    ```
+
+    Debido a ciertos invenientes, no se pudo cerrar la ventana de login despues de abrir
+    el desktop, pero esto no es inconveniente para seguir trabajando, asi que tengo 
+    la esperanza de que podre solucionar este inconveniente más adelante.
+
+    Ahora continuamos, y el objetivo es usar una base de datos como MongoDB para almacenar 
+    los usuarios que puedan ingresar al escritorio de nuestro SO.
     
 
 

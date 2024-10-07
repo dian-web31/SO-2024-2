@@ -1,9 +1,12 @@
 #include <gtk/gtk.h>
 
-int main(int argc, char *argv[]) {
+// Definir la función que abrirá la ventana de escritorio
+void open_desktop_window() {
     GtkWidget *window;
 
     // Inicializar GTK
+    int argc = 0;
+    char **argv = NULL;
     gtk_init(&argc, &argv);
 
     // Crear una ventana principal para el "escritorio"
@@ -19,6 +22,4 @@ int main(int argc, char *argv[]) {
 
     // Iniciar el loop de eventos de GTK
     gtk_main();
-
-    return 0;
 }
