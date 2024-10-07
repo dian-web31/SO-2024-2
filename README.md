@@ -21,8 +21,8 @@
     y por culpa de eso las descargas fueron ineficientes y tuve que realizar más procesos de descarga manual.
 
     Para hacer con exito este primer proceso, usaremos el tutorial que ofrece microsoft en la página oficial de Visual
-    Studio Code, ingresaremos con este [link][https://code.visualstudio.com/docs/languages/cpp] y tambien
-    usaremos el tutorial para descargar la terminal de MSYS2 [link][https://www.msys2.org/], de las terminales
+    Studio Code, ingresaremos con este [link](https://code.visualstudio.com/docs/languages/cpp) y tambien
+    usaremos el tutorial para descargar la terminal de MSYS2 [link](https://www.msys2.org/), de las terminales
     que descargaremos en nuestro dispositivo, usaremos la MSYS2 MGWIN64.
 
     Buscaremos el compilador, o sea la terminal MSYS2 MGWIN64 dentro de las aplicaciones, y nos ubicaremos dentro del proyecto, 
